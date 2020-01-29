@@ -16,6 +16,7 @@ public class Payment implements Serializable {
     private Long id;
     private Instant moment;
 
+    @JsonIgnore
     @OneToOne
     @MapsId //Copy the id from principal class - https://stackoverflow.com/questions/9923643/can-someone-please-explain-me-mapsid-in-hibernate
     private Order order;
@@ -45,7 +46,6 @@ public class Payment implements Serializable {
         this.moment = moment;
     }
 
-    @JsonIgnore
     public Order getOrder() {
         return order;
     }
