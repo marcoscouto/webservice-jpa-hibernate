@@ -1,6 +1,7 @@
 package com.marcoscouto.webservicesjpahibernate.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
 
+    @JsonIgnoreProperties("products")
     @ManyToMany
     @JoinTable(
             name = "tb_product_category",

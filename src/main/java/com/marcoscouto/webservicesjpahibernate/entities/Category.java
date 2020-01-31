@@ -1,6 +1,7 @@
 package com.marcoscouto.webservicesjpahibernate.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +18,7 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("categories")
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
